@@ -1,0 +1,28 @@
+<div fxLayout="column" fxLayoutAlign="start stretch">
+  <div fxLayout="column" fxLayoutAlign="center center">
+    <span>Nouvel Article</span>
+  </div>
+  <div>
+    <form fxLayout="column" fxLayoutAlign="space-around stretch">
+
+      <mat-form-field>
+        <input matInput placeholder="Nom article" [(ngModel)]="article.nom_article" [ngModelOptions]="{standalone: true}">
+      </mat-form-field>
+
+      <mat-form-field>
+        <input matInput type="number" placeholder="Prix" [(ngModel)]="article.prix_article" [ngModelOptions]="{standalone: true}">
+      </mat-form-field>
+
+      <mat-form-field>
+
+
+        <input matInput type="number" placeholder="Délai pour préparation" [(ngModel)]="article.delai_preparation"
+          [ngModelOptions]="{standalone: true}">
+      </mat-form-field>
+
+
+
+      <button mat-raised-button color="accent" (click)="ajouter()" [disabled]="false">Ajouter</button>
+    </form>
+  </div>
+</div>

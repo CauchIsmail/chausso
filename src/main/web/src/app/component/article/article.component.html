@@ -1,0 +1,38 @@
+<div class="example-form" fxLayout="row" fxLayoutAlign="centre spatial">
+
+
+
+
+
+  <table id="customers">
+    <tr>
+      <th>Reference article</th>
+      <th>Libelle Article</th>
+      <th>Prix Article</th>
+      <th>Delai fabrication</th>
+      <th>Édition</th>
+    </tr>
+    <tr *ngFor="let article of listeArticles">
+      <td fxLayout="row" fxLayoutAlign="space-around center">
+        <span>{{article.id_article}}</span>
+        <mat-chip-list>
+          <mat-chip *ngIf="article.modifie && article.id_article > 0" color="primary" selected>Modifié</mat-chip>
+          <mat-chip *ngIf="article.id_article < 0" color="accent" selected>Nouveau</mat-chip>
+        </mat-chip-list>
+      </td>
+      <td>{{article.nom_article}}</td>
+      <td>{{article.prix_article}}</td>
+      <td>{{article.delai_preparation}}</td>
+      <td>
+        <button mat-raised-button color="primary" (click)="openDialog(article)">Éditer</button>
+      </td>
+    </tr>
+
+  </table>
+  <button mat-raised-button color="accent" (click)="enregistrer()">Enregistrer</button>
+
+
+</div>
+<button mat-icon-button>
+  <mat-icon svgIcon="add" aria-label="Example icon-button with a heart icon" (click)="openDialog(null)">ajouter</mat-icon>
+</button>

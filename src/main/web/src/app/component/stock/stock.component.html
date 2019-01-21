@@ -1,0 +1,36 @@
+<div class="example-form" fxLayout="column" fxLayoutAlign="start stretch">
+  <div class="classFilter" fxLayout="row" fxLayoutAlign="space-around stretch">
+      <form class="example-form">
+    <mat-form-field class="example-full-width">
+      <input matInput placeholder="Libelle Article" value="" [(ngModel)]="myModel"  [ngModelOptions]="{standalone: true}">
+    </mat-form-field>
+    </form>
+    <mat-icon [matBadge]="pourBadge" matBadgeColor="warn" svgIcon="stock">home</mat-icon>
+  </div>
+  <table id="customers">
+    <tr>
+      <th>Fournisseur</th>
+      <th>Libelle Article</th>
+      <th>Prix Article</th>
+      <th>Stock</th>
+      <th>Delai</th>
+      <th>Quantité commandée</th>
+      <th>Commander</th>
+    </tr>
+    <tr [class]="(stock.quantiteCommandee != null && stock.quantiteCommandee > 0)? 'articleCommande' : ''" *ngFor="let stock of listeStockChausson | articlePipe : myModel : listeStockChausson">
+      <td>Chausson</td>
+      <td>{{stock.article.nom_article}}</td>
+      <td>{{stock.article.prix_article}}</td>
+      <td>{{stock.stock}}</td>
+      <td>{{stock.delai}}</td>
+      <td>{{stock.quantiteCommandee}}</td>
+      <td>
+        <button mat-raised-button color="primary" (click)="openDialog(stock)">Commander</button>
+      </td>
+    </tr>
+
+  </table>
+  <button mat-raised-button color="accent" (click)="enregistrer()">Enregistrer</button>
+
+
+</div>

@@ -1,0 +1,18 @@
+<div fxLayout="column" fxLayoutAlign="start stretch">
+  <div fxLayout="column" fxLayoutAlign="center center">
+    <span>Choisissez une quantité pour l'article </span>
+  </div>
+  <div>
+    <form fxLayout="column" fxLayoutAlign="space-around stretch">
+      <mat-form-field>
+
+
+        <input matInput type="number" placeholder="Quantité" [(ngModel)]="commande.quantite" [ngModelOptions]="{standalone: true}">
+      </mat-form-field>
+
+
+
+      <button mat-raised-button color="accent" (click)="ajouter()" [disabled]="commande.quantite == undifined">Ajouter</button>
+    </form>
+  </div>
+</div>

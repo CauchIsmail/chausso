@@ -1,0 +1,28 @@
+<div class="example-form" fxLayout="row" fxLayoutAlign="centre spatial">
+
+  <table id="customers">
+    <tr>
+      <th>Fournisseur</th>
+      <th>Libelle Article</th>
+      <th>Prix Article</th>
+      <th>Date de la commande</th>
+      <th>Date de livraison prévue</th>
+      <th>Quantité commandée</th>
+    </tr>
+    <tr *ngFor="let commande of listeCommandeChausson">
+      <td>Chausson</td>
+      <td>{{commande.article.nom_article}}</td>
+      <td>{{commande.article.prix_article}}</td>
+      <td>{{commande.dateCommande | date: 'dd/MM/yyyy'}}</td>
+      <td>
+        <span>{{commande.quantiteNor}} article - {{commande.dateLivraison | date: 'dd/MM/yyyy'}}</span><br>
+        <span *ngIf="commande.dateLivraisonPreparation != null">{{commande.sous}} article - {{commande.dateLivraisonPreparation | date: 'dd/MM/yyyy'}}</span>
+      </td>
+      <td>{{commande.quantite}}</td>
+      
+    </tr>
+
+  </table>
+  
+
+</div>

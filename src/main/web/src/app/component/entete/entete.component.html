@@ -1,0 +1,31 @@
+<div class="divEntete" fxLayout="row" fxLayoutAlign="start center" >
+  <div>
+  <span class="chau">CHAU</span>
+  <span class="sson">SSON</span>
+</div>
+  <button mat-icon-button [matMenuTriggerFor]="menu">
+    <mat-icon style="color:white" svgIcon="more">more</mat-icon>
+  </button>
+
+  <span style="color:white;">{{currentPage}}</span>
+ 
+  <mat-menu #menu="matMenu">
+    <a (click)="currentPage='Stock'"  mat-button routerLink="/stock">
+      <mat-icon svgIcon="stock">stock</mat-icon>
+      <span> Stock</span>
+    </a>
+    <br>
+    <a (click)="currentPage='Commandes'" mat-button routerLink="/commandes">
+      <mat-icon svgIcon="commande">commande</mat-icon>
+      <span> Commande</span>
+    </a>
+    <br>
+    <a (click)="currentPage='chaussure'"  mat-button routerLink="/articles">
+      <mat-icon svgIcon="chaussure">chaussure</mat-icon>
+      <span> Chaussure</span>
+    </a>
+  </mat-menu>
+
+
+
+</div>
